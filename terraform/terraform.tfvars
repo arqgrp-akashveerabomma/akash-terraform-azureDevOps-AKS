@@ -9,6 +9,6 @@ load_balancer_sku   = "basic"
 tags = {
   Environment = "dev"
 }
-acr_name = "ncsdemo"
+acr_name = "ncsdemo1245"
 acr_sku  = "Basic"
 subscription_id = "927b627a-f48c-4dac-9be9-f669d3570d5c"

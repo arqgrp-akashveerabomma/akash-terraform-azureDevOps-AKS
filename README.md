@@ -117,3 +117,53 @@ I saved it as application pipeline
 and run is successful
 ![alt text](image-17.png)
 You can see your image is published to container repository
+********************************************************************************
+Above we have created CI for application. Now we will create a CD (Release) with continuous deployment trigger enabled. 
+
+Before that, Let's create one more service connection for Kubernetes.
+Step 1:
+![alt text](image-18.png)
+![alt text](image-19.png)
+
+Grant access to all pipelines and save
+
+Step 2:
+1. Go to Azure Pipeline and create a release
+![alt text](image-25.png)
+
+Click on create new pipeline
+
+select "deploy to Kubernetes template
+
+![alt text](image-26.png)
+
+![alt text](image-27.png)
+
+Change stage name to dev
+
+2. Click on Artifact and select your application pipeline as the source and click 'add'
+![alt text](image-28.png)
+
+3. You can save. You can also name the pipeline as KUbernetes deploy 
+
+![alt text](image-29.png)
+
+4. Click on job and then on the agent job. Select agent job specification as per below
+![alt text](image-30.png)
+
+Right click on Kubectl job and remove that job. Now, click the right hand plus on the agent job and add a task to the agent job
+
+![alt text](image-31.png)
+![alt text](image-32.png)
+
+add deploy to Kubernetes job. Click on deploy and configure as per below
+![alt text](image-33.png)
+
+Select your mainfest as per below
+![alt text](image-34.png
+![alt text](image-36.png)
+
+Finally enable continuous deployment trigger
+![alt text](image-37.png)
+
+

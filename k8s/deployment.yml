@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: devncsdemo1.azurecr.io/app # Replace with your ACR and image tag
+        image: ncsdemo12450.azurecr.io/app # Replace with your ACR and image tag
         ports:
         - containerPort: 80
 

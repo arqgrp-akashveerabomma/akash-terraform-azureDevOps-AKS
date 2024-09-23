@@ -53,7 +53,6 @@ stages:
         - template: template.yml
           parameters:
             command: 'init'
-            provider: $(provider)
             displayName: 'Terraform init'
             workingDirectory: $(workingDirectory)
         
@@ -67,7 +66,7 @@ stages:
             command: 'apply'
             displayName: 'Terraform Apply'
             workingDirectory: $(workingDirectory)
-            # You might need to add `commandOptions: '-auto-approve'` if necessary
+            
 
   - stage: aksDestroy
     displayName: 'Destroy AKS Cluster'

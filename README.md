@@ -6,9 +6,16 @@ Pre-requisites:
 1. Azure Subscription
 2. Azure DevOps Organsation
 3. Github account
+4. Vscode
 
-Create Backend: Create storage account, container and key
+**********************************************************************
 
+
+For Backend:
+
+Create storage account, container and key
+
+************************************************************************
 
 Create Azure DevOps organisation:
 login to azuredevops
@@ -83,3 +90,19 @@ Before this piplline run:
 go to your vs code: update your tfvars file, set your acr name something unique and push your code to github
 
 Then configure the previous pipeline step and save and run
+
+This should Create the cluster.
+
+
+******************************************************************
+CI/CD with Docker and kuberenetes manifest
+
+Step 1. Create a docker service connection
+![alt text](image-13.png)
+![alt text](image-14.png)
+
+Grant access to all pipelines and save
+
+Step 2.
+Update docker-K8s-pipelines.yml-provide your service connection name
+![alt text](image-15.png)

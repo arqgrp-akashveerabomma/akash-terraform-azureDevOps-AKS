@@ -1,0 +1,90 @@
+trigger:
+- none
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  - group: commonvariables  # Reference the variable group
+  - name: workingDirectory
+    value: '$(System.DefaultWorkingDirectory)/terraform'  # Define working directory here
+  
+
+
+stages:
+  - stage: setup
+    displayName: 'Setup'
+    jobs:
+      - job: InstallTerraform
+        displayName: 'Install Terraform'
+        steps:
+          - task: JasonBJohnson.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-installer.TerraformInstaller@2
+            displayName: 'Install Terraform'
+            inputs:
+              terraformVersion: latest
+
+  - stage: terraformValidate
+    displayName: 'Terraform Validation'
+    jobs:
+      - job: Build
+        displayName: 'Terraform Validate Job'
+        continueOnError: false
+        steps:
+        - template: template.yml
+          parameters:
+            command: 'init'
+            displayName: 'Terraform Init'
+            workingDirectory: $(workingDirectory)
+
+        - template: template.yml
+          parameters:
+            command: 'validate'
+            displayName: 'Terraform Validate'
+            workingDirectory: $(workingDirectory)
+
+  - stage: aksDeploy
+    displayName: 'AKS Cluster Deployment'
+    dependsOn: terraformValidate
+    jobs:
+      - job: Deploy
+        displayName: 'AKS Apply Job'
+        continueOnError: false
+        steps:
+        - template: template.yml
+          parameters:
+            command: 'init'
+            provider: $(provider)
+            displayName: 'Terraform init'
+            workingDirectory: $(workingDirectory)
+        
+        - template: template.yml
+          parameters:
+            command: 'plan'
+            displayName: 'Terraform Plan'
+            workingDirectory: $(workingDirectory)
+        - template: template.yml
+          parameters:
+            command: 'apply'
+            displayName: 'Terraform Apply'
+            workingDirectory: $(workingDirectory)
+            # You might need to add `commandOptions: '-auto-approve'` if necessary
+
+  - stage: aksDestroy
+    displayName: 'Destroy AKS Cluster'
+    dependsOn: aksDeploy
+    jobs:
+      - job: Destroy
+        displayName: 'AKS Destroy Job'
+        continueOnError: false
+        steps:
+        - template: template.yml
+          parameters:
+            command: 'init'
+            displayName: 'Terraform init'
+            workingDirectory: $(workingDirectory)
+        
+        - template: template.yml
+          parameters:
+            command: 'destroy'
+            displayName: 'Terraform Destroy'
+            workingDirectory: $(workingDirectory)

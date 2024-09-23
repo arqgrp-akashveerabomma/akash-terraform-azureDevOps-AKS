@@ -1,0 +1,24 @@
+parameters:
+  - name: command
+    type: string
+  - name: displayName
+    type: string
+  - name: workingDirectory
+    type: string
+  - name: provider
+    type: string
+
+steps:
+  - task: JasonBJohnson.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-cli.TerraformCLI@1
+    displayName: ${{ parameters.displayName }}
+    inputs:
+      provider: ${{ parameters.provider }}
+      command: ${{ parameters.command }}
+      workingDirectory: ${{ parameters.workingDirectory }}
+      environmentServiceName: $(environmentServiceName)
+      backendServiceArm: $(backendServiceArm)
+      backendType: $(backendType)
+      backendAzureRmResourceGroupName: $(backendAzureRmResourceGroupName)
+      backendAzureRmStorageAccountName: $(backendAzureRmStorageAccountName)
+      backendAzureRmContainerName: $(backendAzureRmContainerName)
+      backendAzureRmKey: $(backendAzureRmKey

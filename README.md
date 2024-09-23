@@ -106,3 +106,8 @@ Grant access to all pipelines and save
 Step 2.
 Update docker-K8s-pipelines.yml-provide your service connection name
 ![alt text](image-15.png)
+
+Step 3. 
+Push the code
+
+Step 4. Create a new pipeline (Follow previous steps on how to create use docker-k8s-pipelines.yml)

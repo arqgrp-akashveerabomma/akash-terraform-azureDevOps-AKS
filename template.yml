@@ -5,14 +5,11 @@ parameters:
     type: string
   - name: workingDirectory
     type: string
-  - name: provider
-    type: string
 
 steps:
   - task: JasonBJohnson.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-cli.TerraformCLI@1
     displayName: ${{ parameters.displayName }}
     inputs:
-      provider: ${{ parameters.provider }}
       command: ${{ parameters.command }}
       workingDirectory: ${{ parameters.workingDirectory }}
       environmentServiceName: $(environmentServiceName)

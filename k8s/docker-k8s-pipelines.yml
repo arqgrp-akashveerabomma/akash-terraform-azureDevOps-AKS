@@ -29,4 +29,4 @@ stages:
            inputs:
              PathtoPublish: '$(System.DefaultWorkingDirectory)/k8s'
              ArtifactName: 'k8s'
-             publishLocation: 'container
+             publishLocation: 'container'

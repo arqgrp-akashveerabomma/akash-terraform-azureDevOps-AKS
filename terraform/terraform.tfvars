@@ -1,4 +1,4 @@
-resource_group_name = ""
+resource_group_name = "azureaks"
 location            = "australiaeast"
 aks_name            = "dev-aks-cluster"
 dns_prefix          = "dev-aks"
@@ -9,6 +9,6 @@ load_balancer_sku   = "basic"
 tags = {
   Environment = "dev"
 }
-acr_name = ""
+acr_name = "ncsdemo12450"
 acr_sku  = "Basic"
-subscription_id = ""
+subscription_id = "927b627a-f48c-4dac-9be9-f669d3570d5c"

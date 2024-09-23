@@ -111,3 +111,9 @@ Step 3.
 Push the code
 
 Step 4. Create a new pipeline (Follow previous steps on how to create use docker-k8s-pipelines.yml)
+![alt text](image-16.png)
+
+I saved it as application pipeline
+and run is successful
+![alt text](image-17.png)
+You can see your image is published to container repository

@@ -44,8 +44,9 @@ az role assignment create --assignee client id --role "User Access Administrator
 
 Create another service connection to integrate your github. 
 ![alt text](image-23.png)
+
 In the project go to Library and set your common variables:
-Create a variable group and set below variables
+Create a variable group and set below variables:
 backendAzureRmContainerName
 aks
 backendAzureRmKey

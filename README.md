@@ -167,3 +167,5 @@ Finally enable continuous deployment trigger
 ![alt text](image-37.png)
 
 
+
+Finally run your application pipeline and you should see your release succeeded.

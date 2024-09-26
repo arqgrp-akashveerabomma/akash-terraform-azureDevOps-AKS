@@ -17,7 +17,7 @@ stages:
          # Task-1: Build Docker Image and push to Azure Container Registry ACR
          - task: Docker@2
            inputs:
-             containerRegistry: 'docker-svc-conn'   # Your ACR service connection name
+             containerRegistry: 'docker-svc'   # Your ACR service connection name
              repository: 'app'                # Use ACR repository name
              command: 'buildAndPush'
              dockerfile: '**/Dockerfile'            # Ensure the correct path to your Dockerfile

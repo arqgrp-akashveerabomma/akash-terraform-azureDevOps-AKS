@@ -169,3 +169,10 @@ Finally enable continuous deployment trigger
 
 
 Finally run your application pipeline and you should see your release succeeded.
+
+
+Login to your cluster and get the external ip of the svc 
+![alt text](image-39.png)
+
+on your browser paste ip and hit! you should see something like this!
+![alt text](image-40.png)
